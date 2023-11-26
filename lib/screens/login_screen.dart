@@ -1,4 +1,3 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:task_flutter/screens/home_screen.dart';
 
@@ -110,7 +109,6 @@ class _LoginScreenState extends State<LoginScreen> {
                         alignment: Alignment.centerRight,
                         child: TextButton(
                           onPressed: () {
-                            // Implement forgot password
                           },
                           child: const Text(
                             'Forgot password?',
