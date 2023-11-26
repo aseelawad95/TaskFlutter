@@ -10,10 +10,7 @@ class SplashScreen extends StatefulWidget {
   _SplashScreenState createState() => _SplashScreenState();
 }
 
-class _SplashScreenState extends State<SplashScreen>
-    with TickerProviderStateMixin {
-  late AnimationController _animationController;
-
+class _SplashScreenState extends State<SplashScreen>{
   final bool _textVisible = true;
 
   @override
@@ -25,11 +22,6 @@ class _SplashScreenState extends State<SplashScreen>
     super.initState();
   }
 
-  @override
-  void dispose() {
-    _animationController.dispose();
-    super.dispose();
-  }
 
 
   @override
@@ -72,26 +64,6 @@ class _SplashScreenState extends State<SplashScreen>
                 const SizedBox(
                   height: 100,
                 ),
-                // ScaleTransition(
-                //   scale: _animation,
-                //   child: Container(
-                //       decoration: BoxDecoration(
-                //           borderRadius: BorderRadius.circular(10),
-                //           gradient: const LinearGradient(
-                //               colors: [Colors.yellow, Colors.orange])),
-                //       child: AnimatedOpacity(
-                //         opacity: _textVisible ? 1.0 : 0.0,
-                //         duration: const Duration(milliseconds: 50),
-                //         child: MaterialButton(
-                //           onPressed: () => _onTap(),
-                //           minWidth: double.infinity,
-                //           child: const Text(
-                //             "Start",
-                //             style: TextStyle(color: Colors.white),
-                //           ),
-                //         ),
-                //       )),
-                // ),
                 const SizedBox(
                   height: 30,
                 ),
