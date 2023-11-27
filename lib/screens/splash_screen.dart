@@ -1,3 +1,4 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'home_screen.dart';
 import 'login_screen.dart';
@@ -9,19 +10,17 @@ class SplashScreen extends StatefulWidget {
   _SplashScreenState createState() => _SplashScreenState();
 }
 
-class _SplashScreenState extends State<SplashScreen>{
+class _SplashScreenState extends State<SplashScreen> {
   final bool _textVisible = true;
 
   @override
   void initState() {
-    Future.delayed(const Duration(seconds: 5), () {
-      Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (context) => const LoginScreen()));
+    Future.delayed(const Duration(seconds: 15), () {
+      Navigator.pushReplacement(context,
+          MaterialPageRoute(builder: (context) => const LoginScreen()));
     });
     super.initState();
   }
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -45,20 +44,35 @@ class _SplashScreenState extends State<SplashScreen>{
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                const Text(
-                  'Taking Order For Faster Delivery',
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 50,
-                      fontWeight: FontWeight.bold),
+                AnimatedTextKit(
+                  pause: const Duration(milliseconds: 200),
+                  displayFullTextOnTap: true,
+                  stopPauseOnTap: true,
+                  animatedTexts: [
+                    TyperAnimatedText(
+                      'Taking Order For Faster Delivery',
+                       speed: const Duration(milliseconds: 200),
+                      textStyle: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 50,
+                          fontWeight: FontWeight.bold),
+                    ),
+                  ],
                 ),
                 const SizedBox(
                   height: 20,
                 ),
-                const Text(
-                  "See restaurants nearby by \nadding location",
-                  style:
-                      TextStyle(color: Colors.white, height: 1.4, fontSize: 18),
+                AnimatedTextKit(
+                  pause: const Duration(milliseconds: 200),
+                  displayFullTextOnTap: true,
+                  stopPauseOnTap: true,
+                  animatedTexts: [
+                    TyperAnimatedText(
+                      "See restaurants nearby by \nadding location",
+                       speed: const Duration(milliseconds: 200),
+                      textStyle: const  TextStyle(color: Colors.white, height: 1.4, fontSize: 18),
+                    ),
+                  ],
                 ),
                 const SizedBox(
                   height: 100,
@@ -68,7 +82,7 @@ class _SplashScreenState extends State<SplashScreen>{
                 ),
                 AnimatedOpacity(
                   opacity: _textVisible ? 1.0 : 0.0,
-                  duration: const Duration(milliseconds: 50),
+                  duration: const Duration(milliseconds: 100),
                   child: const Align(
                     child: Text(
                       "Now Deliver To Your Door 24/7",

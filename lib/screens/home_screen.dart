@@ -40,88 +40,90 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.grey[100],
-      appBar: AppBar(
+    return SafeArea(
+      child: Scaffold(
         backgroundColor: Colors.grey[100],
-        elevation: 0,
-        title: Text(
-          'Food Delivery',
-          style: TextStyle(
-              color: Colors.grey[80],
-              fontWeight: FontWeight.bold,
-              fontSize: 30),
-        ),
-        actions: [
-          IconButton(
-            onPressed: () {},
-            icon: Icon(
-              Icons.shopping_basket,
-              color: Colors.grey[800],
-            ),
-          )
-        ],
-      ),
-      body: SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  SizedBox(
-                    height: 50,
-                    child: ListView.builder(
-                        scrollDirection: Axis.horizontal,
-                        itemCount: categories.length,
-                        itemBuilder: (context, index) => makeCategory(
-                            title: categories[index], index: index)),
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                ],
+        appBar: AppBar(
+          backgroundColor: Colors.grey[100],
+          elevation: 0,
+          title: const Text(
+            'Food Delivery',
+            style: TextStyle(
+                color: Colors.black,
+                fontWeight: FontWeight.bold,
+                fontSize: 30),
+          ),
+          actions: [
+            IconButton(
+              onPressed: () {},
+              icon: Icon(
+                Icons.shopping_basket,
+                color: Colors.grey[800],
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(20),
-              child: Text(
-                'Free Delivery',
-                style: TextStyle(
-                    color: Colors.grey[700],
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold),
-              ),
-            ),
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                child: GridView.builder(
-                    scrollDirection: Axis.vertical,
-                    physics: const PageScrollPhysics(),
-                    shrinkWrap: true,
-                    itemCount: foods.length,
-                    itemBuilder: (context, index) => makeItem(
-                        image: foods[index]["image"],
-                        isFavorite: foods[index]["isFavorite"],
-                        index: index),
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                    childAspectRatio:1 / 1.4,
-                    crossAxisSpacing: 10,
-                    mainAxisSpacing: 10,
-                ),),
-              ),
-            ),
-            const SizedBox(
-              height: 30,
             )
           ],
+        ),
+        body: SafeArea(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    SizedBox(
+                      height: 50,
+                      child: ListView.builder(
+                          scrollDirection: Axis.horizontal,
+                          itemCount: categories.length,
+                          itemBuilder: (context, index) => makeCategory(
+                              title: categories[index], index: index)),
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(20),
+                child: Text(
+                  'Free Delivery',
+                  style: TextStyle(
+                      color: Colors.grey[700],
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold),
+                ),
+              ),
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                  child: GridView.builder(
+                      scrollDirection: Axis.vertical,
+                      physics: const PageScrollPhysics(),
+                      shrinkWrap: true,
+                      itemCount: foods.length,
+                      itemBuilder: (context, index) => makeItem(
+                          image: foods[index]["image"],
+                          isFavorite: foods[index]["isFavorite"],
+                          index: index),
+                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                      childAspectRatio:1 / 1.4,
+                      crossAxisSpacing: 10,
+                      mainAxisSpacing: 10,
+                  ),),
+                ),
+              ),
+              const SizedBox(
+                height: 30,
+              )
+            ],
+          ),
         ),
       ),
     );
