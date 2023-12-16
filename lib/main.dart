@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:task_flutter/screens/home_screen.dart';
+import 'package:task_flutter/screens/main_screen.dart';
+import 'package:task_flutter/screens/run_container.dart';
 import 'package:task_flutter/screens/splash_screen.dart';
 
 void main() {
@@ -13,7 +15,7 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       title: 'Task Flutter',
       debugShowCheckedModeBanner: false,
-      home: SplashScreen(),
+      home: MainScreen(),
     );
   }
 }

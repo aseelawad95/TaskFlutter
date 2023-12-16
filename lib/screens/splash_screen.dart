@@ -37,7 +37,7 @@ class _SplashScreenState extends State<SplashScreen> {
             Colors.black.withOpacity(.9),
             Colors.black.withOpacity(.8),
             Colors.black.withOpacity(.2),
-          ])),
+          ],),),
           child: Padding(
             padding: const EdgeInsets.all(20.0),
             child: Column(

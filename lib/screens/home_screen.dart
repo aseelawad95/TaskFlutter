@@ -49,13 +49,13 @@ class _HomeScreenState extends State<HomeScreen> {
           title: const Text(
             'Food Delivery',
             style: TextStyle(
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-                fontSize: 30),
+                color: Colors.black, fontWeight: FontWeight.bold, fontSize: 30),
           ),
           actions: [
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+
+              },
               icon: Icon(
                 Icons.shopping_basket,
                 color: Colors.grey[800],
@@ -103,25 +103,27 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20.0),
                   child: GridView.builder(
-                      scrollDirection: Axis.vertical,
-                      physics: const PageScrollPhysics(),
-                      shrinkWrap: true,
-                      itemCount: foods.length,
-                      itemBuilder: (context, index) => makeItem(
-                          image: foods[index]["image"],
-                          isFavorite: foods[index]["isFavorite"],
-                          index: index),
-                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                      childAspectRatio:1 / 1.4,
+                    scrollDirection: Axis.vertical,
+                    physics: const PageScrollPhysics(),
+                    shrinkWrap: true,
+                    itemCount: foods.length,
+                    itemBuilder: (context, index) => makeItem(
+                        image: foods[index]["image"],
+                        isFavorite: foods[index]["isFavorite"],
+                        index: index),
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      childAspectRatio: 1 / 1.4,
                       crossAxisSpacing: 10,
                       mainAxisSpacing: 10,
-                  ),),
+                    ),
+                  ),
                 ),
               ),
               const SizedBox(
                 height: 30,
-              )
+              ),
             ],
           ),
         ),
@@ -132,9 +134,11 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget makeCategory({title, index}) {
     return GestureDetector(
       onTap: () {
-        setState(() {
-          selectedCategory = index;
-        });
+        setState(
+          () {
+            selectedCategory = index;
+          },
+        );
       },
       child: AnimatedContainer(
         width: 120,
@@ -166,34 +170,38 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Container(
           margin: const EdgeInsets.only(right: 20),
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
-              image: DecorationImage(
-                image: AssetImage(image),
-                fit: BoxFit.cover,
-              )),
+            borderRadius: BorderRadius.circular(20),
+            image: DecorationImage(
+              image: AssetImage(image),
+              fit: BoxFit.cover,
+            ),
+          ),
           child: Container(
             decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                gradient:
-                    LinearGradient(begin: Alignment.bottomCenter, stops: const [
-                  .2,
-                  .9
-                ], colors: [
+              borderRadius: BorderRadius.circular(20),
+              gradient: LinearGradient(
+                begin: Alignment.bottomCenter,
+                stops: const [.2, .9],
+                colors: [
                   Colors.black.withOpacity(.9),
                   Colors.black.withOpacity(.3),
-                ])),
+                ],
+              ),
+            ),
             child: Padding(
               padding: const EdgeInsets.all(20.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children:[
+                children: [
                   GestureDetector(
                     onTap: () {
-                      setState(() {
-                        foods[index]["isFavorite"] =
-                            !foods[index]["isFavorite"];
-                      });
+                      setState(
+                        () {
+                          foods[index]["isFavorite"] =
+                              !foods[index]["isFavorite"];
+                        },
+                      );
                     },
                     child: Align(
                       alignment: Alignment.topRight,
@@ -201,13 +209,13 @@ class _HomeScreenState extends State<HomeScreen> {
                           duration: const Duration(milliseconds: 300),
                           padding: const EdgeInsets.all(5),
                           decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(12),
-                              border: Border.all(
-                                width: 1.5,
-                                color: isFavorite
-                                    ? Colors.red
-                                    : Colors.transparent,
-                              )),
+                            borderRadius: BorderRadius.circular(12),
+                            border: Border.all(
+                              width: 1.5,
+                              color:
+                                  isFavorite ? Colors.red : Colors.transparent,
+                            ),
+                          ),
                           child: isFavorite
                               ? const Icon(
                                   Icons.favorite,
@@ -237,7 +245,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         style: TextStyle(color: Colors.white, fontSize: 20),
                       )
                     ],
-                  )
+                  ),
                 ],
               ),
             ),
