@@ -25,12 +25,18 @@ class _MainScreenState extends State<MainScreen> {
                       width: double.infinity,
                       height: 400,
                       padding: const EdgeInsets.all(0),
-                    )
+                      child: const Column(
+                        children: [
+                          Text("dkdj")
+                        ],
+                      ),
+                    ),
                   ],
-                )
+                ),
 
               ),
             ),
+            const Text("dk")
           ],
         ),
       ),
