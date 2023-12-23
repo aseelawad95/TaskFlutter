@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:task_flutter/screens/animation_screen.dart';
 import 'package:task_flutter/screens/home_screen.dart';
 import 'package:task_flutter/screens/main_screen.dart';
 import 'package:task_flutter/screens/run_container.dart';
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       title: 'Task Flutter',
       debugShowCheckedModeBanner: false,
-      home: MainScreen(),
+      home: AnimationScreen(),
     );
   }
 }

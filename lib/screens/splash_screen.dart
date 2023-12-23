@@ -24,6 +24,10 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var currentDate = DateTime.now();
+    print(currentDate.add(const Duration(days: 3,hours: 5,minutes: 20)));
+    var lateDate = currentDate.add(Duration(seconds: 5));
+    print("late : ${lateDate.isAfter(currentDate)}");
     return Scaffold(
       body: Container(
         decoration: const BoxDecoration(
