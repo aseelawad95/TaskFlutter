@@ -71,6 +71,7 @@ class _AnimationScreenState extends State<AnimationScreen> with  TickerProviderS
     //_animationController.dispose();
 
     super.dispose();
+
   }
 
   @override
