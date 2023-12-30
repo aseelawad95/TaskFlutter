@@ -32,3 +32,60 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+
+
+
+
+
+
+class Home extends StatefulWidget {
+  const Home({super.key});
+
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  bool selected = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+          child: IconButton(
+              onPressed: () {
+                setState(() {
+                  selected = !selected;
+                });
+              },
+              icon:
+              selected ? const Icon(Icons.add) : const Icon(Icons.check))),
+    );
+  }
+}
+// class Home extends StatefulWidget {
+//   const Home({super.key});
+//
+//   @override
+//   State<Home> createState() => _HomeState();
+// }
+//
+// class _HomeState extends State<Home> {
+//   bool selected = false;
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       body: Center(
+//           child: IconButton(
+//               onPressed: () {
+//                 setState(() {
+//                   selected = !selected;
+//                 });
+//               },
+//               icon:
+//               selected ? const Icon(Icons.add) : const Icon(Icons.check))),
+//     );
+//   }
+// }
